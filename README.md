@@ -1,5 +1,6 @@
 # liquid-sectionrendering-sample
 A simple sample of Shopify's section rendering API. You can check it out in the custom liquid of the DAWN theme.
+The inventory display is updated every 5 seconds.
 
 
 1)
@@ -24,4 +25,4 @@ Paste script-a.liquid and script-b.liquid into each block.
 7)
 Save.
 
-Try changing the inventory stock of the product and see if the inventory stock on the product page changes.
+Try changing the inventory of the product and see if the inventory on the product page changes.
