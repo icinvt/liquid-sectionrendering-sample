@@ -1,0 +1,22 @@
+<script>
+  setInterval(myTimer, 5000);
+
+  function myTimer() {
+    const nowtime = new Date();
+    const realtime = document.getElementById('realtime');
+    const section_id = '{{ section.id }}';
+    const params = new URLSearchParams(window.location.search);
+    let variant = '';
+    if (params.has('variant')) {
+      variant = params.get('variant');
+    } else {
+      variant = '{{ product.selected_or_first_available_variant.id }}';
+    }
+    fetch(window.location.pathname + '?variant=' + variant + '&section_id=' + section_id)
+      .then((response) => response.text())
+      .then((responseText) => {
+        const html = new DOMParser().parseFromString(responseText, 'text/html');
+        realtime.innerHTML = 'Current Inventory : ' + html.getElementById('inventory').firstChild.nodeValue;
+      });
+  }
+</script>
